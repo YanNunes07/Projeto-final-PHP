@@ -1,0 +1,14 @@
+{
+    "name": "yan/projeto-final-php",
+    "description": "projeto final php7",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yan oliveira",
+            "email": "yanhenriquefree@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
