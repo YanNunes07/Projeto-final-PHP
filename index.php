@@ -17,12 +17,12 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Sneakers Sul </a>
       <ul class="right hide-on-med-and-down">
-      <li><a href="./index.php">Home</a></li>
-      <li><a href="./view/sobre.loja.php">Sobre</a></li>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./view/sobre.loja.php">Sobre</a></li>
         <li><a href="./view/calendario.php">Calendario</a></li>
-        <li><a href="./view/cadastro.test.php">Cadastro</a></li>
-        <li><a href="./view/login.resposta.php">Entrar</a></li>
-        <li><a href="./view/cadastro.resposta.php">Meus dados</a></li>
+        <li><a href="./view/cadastro.php">Cadastro</a></li>
+        <li><a href="./view/login.php">Entrar</a></li>
+        <li><a href="./view/login.resposta.php">Meus dados</a></li>
       </ul>
 
 

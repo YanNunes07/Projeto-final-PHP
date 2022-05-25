@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +22,7 @@
                 <li><a href="../view/sobre.loja.php">Sobre</a></li>
                 <li><a href="../view/calendario.php">Calendario</a></li>
                 <li><a href="../view/cadastro.php">Cadastro</a></li>
-                <li><a href="../view/login.resposta.php">Entrar</a></li>
+                <li><a href="../view/login.php">Entrar</a></li>
                 <li><a href="../view/login.resposta.php">Meus dados</a></li>
             </ul>
 
@@ -38,16 +39,59 @@
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container" style="padding-inline-end: 7%; ">
-                <br><br>
-                <h1 class="header center teal-text text-lighten-1" style="color: black; padding-left:15%">Proximos lançamentos</h1>
-                <img class="materialboxed" width="1250" src="../img/ca1.jpeg">
-                <img class="materialboxed" width="1250" src="../img/ca2.jpeg">
-                <img class="materialboxed" width="1250" src="../img/ca3.jpeg">
-                <img class="materialboxed" width="1250" src="../img/ca4.jpeg">
-                <p></p>
+                <form class="col s12" action="../controller/loja.controller.php?op=cadastrar" method="POST" style="padding-left: 12%; color:black;">
+                    <div class="row 12">
+                        <div class="input-field col s12">
+                            <p>Digite seu nome: </p>
+                            <input placeholder="Digite seu nome" name="txtnome" pattern="[a-zA-Z]{3,100}" type="text" placeholder="Digite o nome:" required autofocus>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <p>Digite seu email: </p>
+                            <input placeholder="exemple@exemple.com" name="txtemail" type="email" required>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <p>Digite sua senha: </p>
+                            <input placeholder="Digite uma senha de até 6 digitos." name="txtsenha" type="password" required>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <p>Digite sua idade: </p>
+                            <input placeholder="Digite sua idade" name="txtidade" type="number" required>
+                        </div>
+                        <div class="input-field col s12">
+                            <p>Digite seu telefone:</p>
+                            <input placeholder="(99)9999-999" name="txtfone" type="number" required>
+                        </div>
+                        <form action="#">
+                            <p style="padding-left: 2%;">
+                                <label>
+                                    <input type="checkbox" required/>
+                                    <span>Aceito os termos</span>
+                                </label>
+                            </p>
+                            <p style="padding-left: 2%;">
+                                <label>
+                                    <input type="checkbox" />
+                                    <span>Aceito receber os lançamentos por email</span>
+                                </label>
+                            </p>
+                        </form>
+                        <div class="input-field col s12">
+                            <a>
+                                <button class="btn waves-effect waves-light" type="submit" name="action" value="cadastrar">Enviar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </a>
+                            <input class="btn btn-warning" type="reset" name="btnLimpar" value="Limpar dados">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <br>
+    </div>
+    <br>
 
     </div>
 
