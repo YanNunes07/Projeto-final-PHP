@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['loginEncontrado'])){
+    header('Location: login.resposta.php');
+}else{
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +47,7 @@
 
 
         <h5 style="padding-left: 50%;">Entrar</h5>
-        <form method="post" action="">
+        <form method="post" action="../controller/loja.controller.php?op=logar">
             <div class="row" style="padding-left: 32%;">
                 <div class="col s12 m7">
                     <fieldset>
@@ -69,27 +77,6 @@
             </div>
             </div>
         </form>
-        <?php
-        if(isset($_POST['btnLogar'])){
-            include '../model/usuario.class.php';
-            include '../dao/usuariodao.class.php';
-            $u = new Usuario();
-
-            $u->email = $_POST['txtemail'];
-            $u->senha = md5($_POST['txtsenha']);
-
-            $uDAO = new UsuarioDAO();
-            $usuario = $uDAO->login($u);
-            
-            if($usuario == null){
-                echo "<h2>Usuário/senha inválido(s)!</h2>";
-            }else{
-            $_SESSION['msg'] = 'Usuario logado com sucesso!';
-            $_SESSION['loginEncontrado'] = serialize($usuario);
-            header('Location: ../view/login.resposta.php');
-            }
-        }
-        ?>
     </section>
     <footer class="page-footer teal">
         <div class="container">

@@ -63,16 +63,21 @@ verificacao('login.php');
 
                     $u = unserialize($_SESSION['loginEncontrado']);
                         
+
+                    //aqui imprime os dados da model
                     echo $_SESSION['msg'].$u;
 
                     }
 
                     ?>
-                    <button>
-                        <a href="../controller/loja.controller.php?op=sair">
+
+                        <button class="btn waves-effect waves-light">
+                            <a style="color:white"href="../controller/loja.controller.php?op=sair">
                             Logout
+                            <i class="material-icons logout">logout</i>
                         </a>
-                    </button>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

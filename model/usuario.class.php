@@ -25,8 +25,7 @@ class Usuario
     function __toString()
     {
         return nl2br(
-                     "<hr><h5>
-                      <p>Nome: $this->nome</p>
+                     "<hr><h5><p>Nome: $this->nome</p>
                       <p>Email: $this->email</p>
                       <p>Idade: $this->idade </p>
                       <p>Telefone: $this->telefone</p>

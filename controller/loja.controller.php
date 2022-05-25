@@ -46,18 +46,19 @@
 
     case "logar":
         if(isset($_POST['btnLogar'])){
-            include '../model/usuario.class.php';
-            include '../dao/usuariodao.class.php';
             $u = new Usuario();
 
             $u->email = $_POST['txtemail'];
-            $u->senha = md5($_POST['txtsenha']);
+            $u->senha = $_POST['txtsenha'];
 
             $uDAO = new UsuarioDAO();
             $usuario = $uDAO->login($u);
             
             if($usuario == null){
-                echo "<h2>Usuário/senha inválido(s)!</h2>";
+                echo "<script type=\"text/javascript\">
+                alert(\"Usuário/senha inválido(s)!\");
+                window.location=\"../view/login.php\";
+            </script>";
             }else{
             $_SESSION['msg'] = 'Usuario logado com sucesso!';
             $_SESSION['loginEncontrado'] = serialize($usuario);

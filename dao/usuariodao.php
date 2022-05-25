@@ -16,7 +16,7 @@ Class UsuarioDAO{
         (null,:nome,:senha,:email,:idade,:telefone)");
 
         $stat->bindValue(":nome",$usuario->nome);
-        $stat->bindValue(":senha",md5($usuario->senha));
+        $stat->bindValue(":senha",$usuario->senha);
         $stat->bindValue(":email",$usuario->email);
         $stat->bindValue(":idade",$usuario->idade);
         $stat->bindValue(":telefone",$usuario->telefone);
@@ -33,7 +33,7 @@ Class UsuarioDAO{
         try{
         $stat = $this->conexao->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?");
         $stat->bindValue(1,$usuario->email);
-        $stat->bindValue(2,md5($usuario->senha));
+        $stat->bindValue(2,$usuario->senha);
 
         $stat -> execute();
         

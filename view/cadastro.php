@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+if(isset($_SESSION['loginEncontrado'])){
+    header('Location: login.resposta.php');
+}else{
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
