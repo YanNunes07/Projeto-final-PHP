@@ -7,6 +7,10 @@
         {
             "name": "yan oliveira",
             "email": "yanhenriquefree@gmail.com"
+        },
+        {
+            "name": "Nícolas Silva",
+            "email": "contato.rashy@gmail.com"
         }
     ],
     "minimum-stability": "dev",

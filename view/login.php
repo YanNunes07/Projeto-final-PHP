@@ -1,10 +1,3 @@
-<?php
-  session_start();
-  ob_start();
-
-require_once('../util/verification.class.php');
-verificacao('login.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,42 +35,63 @@ verificacao('login.php');
         </div>
     </nav>
 
-    </div>
-    <div class="row" style="padding-left: 32%;">
-        <div class="col s12 m7">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../img/parra.jpg">
-                    <span class="card-title">Minha conta</span>
+    <section>
+
+
+        <h5 style="padding-left: 50%;">Entrar</h5>
+        <form method="post" action="">
+            <div class="row" style="padding-left: 32%;">
+                <div class="col s12 m7">
+                    <fieldset>
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../img/pol.jpeg">
+                                <div class="input-field col s12">
+                                    <p>Digite seu email:</p>
+                                    <input placeholder="exemple@exemple.com" name="txtemail" type="email" class="validate">
+                                </div>
+                                <div class="input-field col s12">
+                                    <p>Digite sua senha: </p>
+                                    <input placeholder="Digite uma senha de até 6 digitos." type="password" class="validate" name="txtsenha" class="validate">
+                                </div>
+                                <div class="input-field col s12" style="padding-left: 32%;" style=" background-color:black;">
+                                    <a>
+                                        <button class="btn waves-effect waves-light" type="submit" name="btnLogar">Entrar</button>
+                                    </a>
+                                    <a href="../view/cadastro.php">
+                                        <input class="btn btn-warning" type="button" name="btnCadastro" value="Fazer cadastro">
+                                    </a>
+                                </div>
+                    </fieldset>
                 </div>
-                <div class="card-content">
-                    <h4>Em construção</h4>
-                    <?php
 
-                    if(isset($_SESSION['msg']) &&
-                    isset($_SESSION['loginEncontrado'])){
-
-                    require_once('../model/usuario.class.php');
-
-                    $u = new Usuario();
-
-                    $u = unserialize($_SESSION['loginEncontrado']);
-                        
-                    echo $_SESSION['msg'].$u;
-
-                    }
-
-                    ?>
-                    <button>
-                        <a href="../controller/loja.controller.php?op=sair">
-                            Logout
-                        </a>
-                    </button>
-                </div>
             </div>
-        </div>
-    </div>
-<footer class="page-footer teal">
+            </div>
+            </div>
+        </form>
+        <?php
+        if(isset($_POST['btnLogar'])){
+            include '../model/usuario.class.php';
+            include '../dao/usuariodao.class.php';
+            $u = new Usuario();
+
+            $u->email = $_POST['txtemail'];
+            $u->senha = md5($_POST['txtsenha']);
+
+            $uDAO = new UsuarioDAO();
+            $usuario = $uDAO->login($u);
+            
+            if($usuario == null){
+                echo "<h2>Usuário/senha inválido(s)!</h2>";
+            }else{
+            $_SESSION['msg'] = 'Usuario logado com sucesso!';
+            $_SESSION['loginEncontrado'] = serialize($usuario);
+            header('Location: ../view/login.resposta.php');
+            }
+        }
+        ?>
+    </section>
+    <footer class="page-footer teal">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
